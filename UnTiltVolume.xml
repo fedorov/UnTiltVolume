@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <executable>
-  <category>Examples</category>
+  <category>Converters</category>
   <title>UnTiltVolume</title>
-  <description><![CDATA[This is a CLI module (based on GaussianBlurImageFilter) bundled in an extension]]></description>
+  <description><![CDATA[A module to separate the tilt transform from the image volume. The output is an axis-aligned volume and the tilt transform. The origin of the output volume is updated so that the un-tilted volume placed under the tilt transform is aligned with the input volume.]]></description>
   <version>0.0.1</version>
-  <documentation-url>http://www.slicer.org/slicerWiki/index.php/Documentation/4.2/Modules/UnTiltVolume</documentation-url>
+  <documentation-url></documentation-url>
   <license>Slicer</license>
-  <contributor>Julien Jomier (Kitware), Stephen Aylward (Kitware), Jean-Christophe Fillion-Robin (Kitware)</contributor>
-  <acknowledgements>This work was partially funded by NIH grant 3P41RR013218-12S1</acknowledgements>
+  <contributor>Andrey Fedorov (SPL, BWH)</contributor>
+  <acknowledgements>This work was partially funded by NIH grant CA111288.</acknowledgements>
   <parameters>
     <label>IO</label>
     <description><![CDATA[Input/output parameters]]></description>
@@ -16,23 +16,21 @@
       <label>Input Volume</label>
       <channel>input</channel>
       <index>0</index>
-      <description><![CDATA[Input tilted volume]]></description>
+      <description><![CDATA[Input volume that has been acquired with tilt in acquisition matrix]]></description>
     </image>
     <image>
       <name>outputVolume</name>
       <label>Output Volume</label>
       <channel>output</channel>
       <index>1</index>
-      <description><![CDATA[Un-tilted Volume]]></description>
+      <description><![CDATA[Output axis-aligned volume]]></description>
       </image>
-      
     <transform>
       <name>outputTransform</name>
-      <label>Output Transform</label>
+      <label>Output Tilt Transform</label>
       <channel>output</channel>
       <index>2</index>
       <description><![CDATA[Tilt transformation]]></description>
     </transform>
-
   </parameters>
 </executable>
