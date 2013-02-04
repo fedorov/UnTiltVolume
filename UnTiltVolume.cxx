@@ -38,7 +38,9 @@ int DoIt( int argc, char * argv[], T )
 
   typename ImageType::Pointer image = reader->GetOutput();
   typename ImageType::DirectionType dir = image->GetDirection();
-  std::cout << "Direction: " << dir << std::endl;
+
+  // AF: the approach is based on the code by Steve Pieper in
+  //  Slicer4/Libs/MRML/Core/vtkMRMLSliceNode.cxx:1744
 
   //
   // find the closest direction for each of the major axes
@@ -76,7 +78,6 @@ int DoIt( int argc, char * argv[], T )
       }
     }
 
-  std::cout << "Closest axis: " << closestAxis[0] << ", " << closestAxis[1] << ", " << closestAxis[2] << std::endl;
   typename ImageType::DirectionType newDir;
   for(int i=0;i<3;i++){
     for(int j=0;j<3;j++){
